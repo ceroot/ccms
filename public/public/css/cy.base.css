@@ -1,0 +1,432 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors SpringYang (ceroot@163.com)
+ * @date    2017-01-18 10:12:56
+ * @version $Id$
+ */
+
+html,
+body {
+    min-height: 100%;
+}
+.layout-boxed html,
+.layout-boxed body {
+    height: 100%;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+body{ font-size: 12px; background: #f5f5f3;}
+
+/* 一些高度 */
+.hr-0 	{ height:0px; }
+.hr-1 	{ height:1px; }
+.hr-2 	{ height:2px; }
+.hr-3 	{ height:3px; }
+.hr-4 	{ height:4px; }
+.hr-5 	{ height:5px; }
+.hr-6 	{ height:6px; }
+.hr-7 	{ height:7px; }
+.hr-8 	{ height:8px; }
+.hr-10 	{ height:10px; }
+.hr-12 	{ height:12px; }
+.hr-15 	{ height:15px; }
+.hr-20 	{ height:20px; }
+.hr-25 	{ height:25px; }
+.hr-30 	{ height:30px; }
+.hr-40 	{ height:40px; }
+.hr-50 	{ height:50px; }
+.hr-0, .hr-1, .hr-2, .hr-3, .hr-4, .hr-5, .hr-6, .hr-7, .hr-8, .hr-10, .hr-12, .hr-15, .hr-20, .hr-25, .hr-30, .hr-40, .hr-50 { font-size:1px; line-height:1px; clear:both; }
+
+/* 内间距 */
+.pd-5     { padding:5px;}
+.pd-8     { padding:5px;}
+.pd-10    { padding:10px;}
+.pd-12    { padding:12px;}
+.pd-15    { padding:15px;}
+.pd-20    { padding:20px;}
+.pd-25    { padding:25px;}
+.pd-30    { padding:30px;}
+.pd-35    { padding:35px;}
+.pd-40    { padding:40px;}
+.pd-45    { padding:45px;}
+.pd-50    { padding:50px;}
+
+.pd-t-5   { padding-top:5px;}
+.pd-t-8   { padding-top:8px;}
+.pd-t-10  { padding-top:10px;}
+.pd-t-12  { padding-top:12px;}
+.pd-t-15  { padding-top:15px;}
+.pd-t-20  { padding-top:20px;}
+.pd-t-25  { padding-top:25px;}
+.pd-t-26  { padding-top:26px;}
+.pd-t-30  { padding-top:30px;}
+.pd-t-35  { padding-top:35px;}
+.pd-t-40  { padding-top:40px;}
+.pd-t-45  { padding-top:45px;}
+.pd-t-50  { padding-top:50px;}
+
+.pd-l-5   { padding-left:5px;}
+.pd-l-7   { padding-left:7px;}
+.pd-l-8   { padding-left:8px;}
+.pd-l-10  { padding-left:10px;}
+.pd-l-12  { padding-left:12px;}
+.pd-l-15  { padding-left:15px;}
+.pd-l-20  { padding-left:20px;}
+.pd-l-25  { padding-left:25px;}
+.pd-l-30  { padding-left:30px;}
+.pd-l-35  { padding-left:35px;}
+.pd-l-40  { padding-left:40px;}
+.pd-l-45  { padding-left:45px;}
+.pd-l-50  { padding-left:50px;}
+
+.pd-r-5   { padding-right:5px;}
+.pd-r-8   { padding-right:8px;}
+.pd-r-10  { padding-right:10px;}
+.pd-r-12  { padding-right:12px;}
+.pd-r-15  { padding-right:15px;}
+.pd-r-20  { padding-right:20px;}
+.pd-r-25  { padding-right:25px;}
+.pd-r-30  { padding-right:30px;}
+.pd-r-35  { padding-right:35px;}
+.pd-r-40  { padding-right:40px;}
+.pd-r-45  { padding-right:45px;}
+.pd-r-50  { padding-right:50px;}
+
+.pd-b-5   { padding-bottom:5px;}
+.pd-b-8   { padding-bottom:8px;}
+.pd-b-10  { padding-bottom:10px;}
+.pd-b-12  { padding-bottom:12px;}
+.pd-b-15  { padding-bottom:15px;}
+.pd-b-20  { padding-bottom:20px;}
+.pd-b-25  { padding-bottom:25px;}
+.pd-b-30  { padding-bottom:30px;}
+.pd-b-35  { padding-bottom:35px;}
+.pd-b-40  { padding-bottom:40px;}
+.pd-b-45  { padding-bottom:45px;}
+.pd-b-50  { padding-bottom:50px;}
+
+/* 外边距 */
+.mg-5     { margin: 5px;}
+.mg-8     { margin: 8px;}
+.mg-10    { margin: 10px;}
+.mg-12    { margin: 12px;}
+.mg-15    { margin: 15px;}
+.mg-20    { margin: 20px;}
+.mg-25    { margin: 25px;}
+.mg-30    { margin: 30px;}
+.mg-35    { margin: 35px;}
+.mg-40    { margin: 40px;}
+.mg-45    { margin: 45px;}
+.mg-50    { margin: 50px;}
+
+.mg-t-5   { margin-top: 5px;}
+.mg-t-8   { margin-top: 8px;}
+.mg-t-10  { margin-top: 10px;}
+.mg-t-12  { margin-top: 12px;}
+.mg-t-15  { margin-top: 15px;}
+.mg-t-20  { margin-top: 20px;}
+.mg-t-25  { margin-top: 25px;}
+.mg-t-30  { margin-top: 30px;}
+.mg-t-35  { margin-top: 35px;}
+.mg-t-40  { margin-top: 40px;}
+.mg-t-45  { margin-top: 45px;}
+.mg-t-50  { margin-top: 50px;}
+
+.mg-l-5   { margin-left: 5px;}
+.mg-l-8   { margin-left: 8px;}
+.mg-l-10  { margin-left: 10px;}
+.mg-l-12  { margin-left: 12px;}
+.mg-l-15  { margin-left: 15px;}
+.mg-l-20  { margin-left: 20px;}
+.mg-l-25  { margin-left: 25px;}
+.mg-l-30  { margin-left: 30px;}
+.mg-l-35  { margin-left: 35px;}
+.mg-l-40  { margin-left: 40px;}
+.mg-l-45  { margin-left: 45px;}
+.mg-l-50  { margin-left: 50px;}
+
+.mg-r-5   { margin-right: 5px;}
+.mg-r-8   { margin-right: 8px;}
+.mg-r-10  { margin-right: 10px;}
+.mg-r-12  { margin-right: 12px;}
+.mg-r-15  { margin-right: 15px;}
+.mg-r-20  { margin-right: 20px;}
+.mg-r-25  { margin-right: 25px;}
+.mg-r-30  { margin-right: 30px;}
+.mg-r-35  { margin-right: 35px;}
+.mg-r-40  { margin-right: 40px;}
+.mg-r-45  { margin-right: 45px;}
+.mg-r-50  { margin-right: 50px;}
+
+.mg-b-5   { margin-bottom: 5px;}
+.mg-b-8   { margin-bottom: 8px;}
+.mg-b-10  { margin-bottom: 10px;}
+.mg-b-12  { margin-bottom: 12px;}
+.mg-b-15  { margin-bottom: 15px;}
+.mg-b-20  { margin-bottom: 20px;}
+.mg-b-25  { margin-bottom: 25px;}
+.mg-b-30  { margin-bottom: 30px;}
+.mg-b-35  { margin-bottom: 35px;}
+.mg-b-40  { margin-bottom: 40px;}
+.mg-b-45  { margin-bottom: 45px;}
+.mg-b-50  { margin-bottom: 50px;}
+
+/*
+ * Component: Form
+ * ---------------
+ */
+.form-control {
+    border-radius: 0;
+    box-shadow: none;
+    border-color: #d2d6de;
+}
+.form-control:focus {
+  	border-color: #3c8dbc;
+  	box-shadow: none;
+}
+.form-control::-moz-placeholder,
+.form-control:-ms-input-placeholder,
+.form-control::-webkit-input-placeholder {
+  	color: #bbb;
+  	opacity: 1;
+}
+.form-control:not(select) {
+  	-webkit-appearance: none;
+  	-moz-appearance: none;
+  	appearance: none;
+}
+.form-group.has-success label {
+  	color: #00a65a;
+}
+.form-group.has-success .form-control {
+  	border-color: #00a65a;
+  	box-shadow: none;
+}
+.form-group.has-warning label {
+  	color: #f39c12;
+}
+.form-group.has-warning .form-control {
+  	border-color: #f39c12;
+  	box-shadow: none;
+}
+.form-group.has-error label {
+  	color: #dd4b39;
+}
+.form-group.has-error .form-control {
+  	border-color: #dd4b39;
+  	box-shadow: none;
+}
+/* Input group */
+.input-group .input-group-addon {
+  	border-radius: 0;
+  	border-color: #d2d6de;
+  	background-color: #fff;
+}
+/* button groups */
+.btn-group-vertical .btn.btn-flat:first-of-type,
+.btn-group-vertical .btn.btn-flat:last-of-type {
+  	border-radius: 0;
+}
+.icheck > label {
+  	padding-left: 0;
+}
+
+/*checkbox switch start*/
+input.cy-switch[type="checkbox"] {
+    display: none;
+}
+
+input.cy-switch[type="checkbox"] + .lbl {
+    cursor: pointer;
+    font-size: 1em;
+}
+
+input.cy-switch[type="checkbox"] + .lbl {
+    width: 52px;
+    height: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    background-color: #8B9AA3;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1), 0 0 10px rgba(245, 146, 146, 0.4);
+}
+
+input.cy-switch[type="checkbox"] + .lbl:before,
+input.cy-switch[type="checkbox"] + .lbl:after{
+    font-size: 1em;
+    font-weight: bold;
+    position: absolute;
+    top: 2px;
+}
+
+input.cy-switch[type="checkbox"] + .lbl:before {
+    content: 'III';
+    left: 2px;
+    z-index: 9;
+    background: #FFF;
+    border-radius: 8px;  
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    color: #939393;
+    text-align: center;
+    box-shadow: 0 0 1px rgba(0,0,0,0.6);
+    -webkit-transition: all .25s ease;
+    -o-transition: all .25s ease;
+    transition: all .25s ease;
+}
+
+input.cy-switch[type="checkbox"] + .lbl:after {
+    content: 'OFF';
+    left: 24px;
+    color: white;
+    -webkit-transition: all .25s ease;
+    -o-transition: all .25s ease;
+    transition: all .25s ease
+}
+
+input.cy-switch[type="checkbox"]:checked + .lbl {
+    background: #67A5DF;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1), 0 0 10px rgba(146, 196, 245, 0.4);
+}
+
+input.cy-switch[type="checkbox"]:checked + .lbl:after {
+    content: 'ON';
+    left: 6px;
+}
+
+input.cy-switch[type="checkbox"]:checked + .lbl:before {
+    content: 'III';
+    left: 34px;
+}
+
+/*swith yes-no-en start*/
+/*yes and no*/
+input.cy-switch.yes-no-en[type="checkbox"]{
+    /*width: 56px;*/
+}
+input.cy-switch.yes-no-en[type="checkbox"] + .lbl:after {
+    content: 'NO';
+}
+input.cy-switch.yes-no-en[type="checkbox"]:checked + .lbl:after {
+    content: 'YES';
+    /*left: 6px;*/
+}
+/*swith yes-no-en end*/
+
+/*swith yes-no-cn start*/
+/*是与否*/
+input.cy-switch.yes-no-cn[type="checkbox"]{
+    /*width: 56px;*/
+}
+input.cy-switch.yes-no-cn[type="checkbox"] + .lbl:after {
+    content: '否';
+    left: 34px;
+}
+input.cy-switch.yes-no-cn[type="checkbox"]:checked + .lbl:after {
+    content: '是';
+    left: 6px;
+}
+/*swith yes-no-cn end*/
+
+/*swith open-close-en start*/
+/*open and close*/
+input.cy-switch.open-close-en[type="checkbox"]{
+    /*width: 56px;*/
+}
+input.cy-switch.open-close-en[type="checkbox"] + .lbl:after {
+    content: 'CLOSE';
+}
+input.cy-switch.open-close-en[type="checkbox"]:checked + .lbl:after {
+    content: 'OPEN';
+    /*left: 6px;*/
+}
+/*swith open-close-en end*/
+
+/*swith open-close-cn start*/
+/*开与关*/
+input.cy-switch.open-close-cn[type="checkbox"]{
+    /*width: 56px;*/
+}
+input.cy-switch.open-close-cn[type="checkbox"] + .lbl:after {
+    content: '关';
+    left: 34px;
+}
+input.cy-switch.open-close-cn[type="checkbox"]:checked + .lbl:after {
+    content: '开';
+    left: 6px;
+}
+/*swith open-close-cn end*/
+
+/*swith show-hidden-en start*/
+/*show and hidden*/
+input.cy-switch.show-hidden-en[type="checkbox"]{
+    /*width: 56px;*/
+}
+input.cy-switch.show-hidden-en[type="checkbox"] + .lbl:after {
+    content: 'HIDDEN';
+}
+input.cy-switch.show-hidden-en[type="checkbox"]:checked + .lbl:after {
+    content: 'SHOW';
+    /*left: 6px;*/
+}
+/*swith show-hidden-en end*/
+
+/*swith show-hidden-cn start*/
+/*显示与隐藏*/
+input.cy-switch.show-hidden-cn[type="checkbox"]{
+    /*width: 56px;*/
+}
+input.cy-switch.show-hidden-cn[type="checkbox"] + .lbl:after {
+    content: '隐藏';
+    left: 24px;
+}
+input.cy-switch.show-hidden-cn[type="checkbox"]:checked + .lbl:after {
+    content: '显示';
+    left: 4px;
+}
+/*swith show-hidden-cn end*/
+
+/*swith normal-disable-en start*/
+/*normal and disable*/
+input.cy-switch.normal-disable-en[type="checkbox"]{
+    /*width: 56px;*/
+}
+input.cy-switch.normal-disable-en[type="checkbox"] + .lbl:after {
+    content: 'DISABLE';
+}
+input.cy-switch.normal-disable-en[type="checkbox"]:checked + .lbl:after {
+    content: 'NORMAL';
+    /*left: 6px;*/
+}
+/*swith normal-disable-en end*/
+
+/*swith normal-disable-cn start*/
+/*正常与禁用*/
+input.cy-switch.normal-disable-cn[type="checkbox"]{
+    /*width: 56px;*/
+}
+input.cy-switch.normal-disable-cn[type="checkbox"] + .lbl:after {
+    content: '禁用';
+    left: 24px;
+}
+input.cy-switch.normal-disable-cn[type="checkbox"]:checked + .lbl:after {
+    content: '正常';
+    left: 4px;
+}
+/*swith show-hidden-cn end*/
+
+
+
+/*swith yesorno end*/
+/*checkbox switch end*/

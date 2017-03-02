@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- Tell the browser to be responsive to screen width -->
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<title>后台管理 | 登录</title>
+<meta name="author" content="ceroot">
+<meta name="keywords" content="后台管理">
+<meta name="description" content="后台管理">
+<!-- Bootstrap 3.3.5 -->
+<link rel="stylesheet" type="text/css" href="__STATIC__/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- iCheck -->
+<link rel="stylesheet" type="text/css" href="__STATIC__/iCheck/square/blue.css">
+<!-- Theme pace -->
+<link rel="stylesheet" type="text/css" href="__STATIC__/pace/1.0.2/themes/orange/pace-theme-flash.css">
+<!-- Theme style -->
+<link rel="stylesheet" type="text/css" href="__CSS__/cy.base.css">
+<!-- login -->
+<link rel="stylesheet" type="text/css" href="__CONSOLE__/css/cy.login.css">
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="__STATIC__/html5shiv/3.7.3/html5shiv.min.js"></script>
+<script src="__STATIC__/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+<body class="hold-transition login-page">
+<div id="particles-js"></div>
+<div class="color-line"></div>
+<div class="login-box">
+    <div class="login-logo">
+      <b>后台管理登录</b>
+    </div>
+    <!-- /.login-logo -->
+    <div class="login-box-body">
+        <div class="box_img_back_grey">
+            <img src="__IMAGES__/po.jpg">
+        </div>
+        <p class="login-box-msg">Sign in to start your session</p>
+        <form action="" method="post">
+            <div class="input-area">
+                <div class="form-group has-feedback">
+                    <input type="text" name="username" class="form-control" placeholder="用户名/邮箱">
+                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
+                    <input type="password" name="password" id="password" class="form-control" placeholder="密码">
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                </div>
+                <div class="form-group verify-area captcha-area">
+                    <input type="text" name="verify" id="verify" class="form-control" placeholder="验证码">  {:captcha_img()}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-8">
+                    <div class="checkbox icheck">
+                        <label>
+                            <input type="checkbox" id="remember"> 记住用户名
+                        </label>
+                    </div>
+                </div>
+                <!-- /.col -->
+                <div class="col-xs-4">
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">登录</button>
+                </div>
+                <!-- /.col -->
+            </div>
+        </form>
+    </div>
+    <!-- /.login-box-body -->
+</div>
+<div class="text-center copyright">Copyright ©2017 <a href="http://www.benweng.com" target="_blank" title="笨翁造型">BENWENG.COM</a></div>
+<!-- /.login-box -->
+<!-- jQuery 2.2.0 -->
+<script type="text/javascript" src="__STATIC__/jQuery/jquery-3.1.1.min.js"></script>
+<!-- Bootstrap 3.3.5 -->
+<script type="text/javascript" src="__STATIC__/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- Theme pace -->
+<script type="text/javascript" src="__STATIC__/pace/1.0.2/pace.min.js"></script>
+<!-- iCheck -->
+<script type="text/javascript" src="__STATIC__/iCheck/icheck.min.js"></script>
+<!-- particles -->
+<script type="text/javascript" src="__STATIC__/particles.js/2.0.0/particles.min.js"></script>
+<!-- layer -->
+<script type="text/javascript" src="__STATIC__/layer/3.0.2/layer.js"></script>
+<script type="text/javascript" src="__CONSOLE__/js/cy.login.js"></script>
+<script type="text/javascript">
+    var showverifyUrl = '{:url("showverify")}';
+</script>
+</body>
+</html>

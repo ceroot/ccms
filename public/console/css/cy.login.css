@@ -1,0 +1,154 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors SpringYang (ceroot@163.com)
+ * @date    2017-01-18 10:00:06
+ * @version $Id$
+ */
+
+body{
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#cfd8dc+0,607d8b+100,b0bec5+100 */
+    background: #aac4bc; /* Old browsers #d2d6de*/
+    background: -moz-linear-gradient(-45deg,  #aac4bc 0%, #eca8a8 100%, #eed5a9 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg,  #aac4bc 0%,#eca8a8 100%,#eed5a9 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #aac4bc 0%,#eca8a8 100%,#eed5a9 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cfd8dc', endColorstr='#b0bec5',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+#particles-js{width: 100%; height: 98%; position: absolute; z-index: 0}
+#particles-js canvas{}
+
+.login-page,
+.register-page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.login-logo,
+.register-logo {
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 300;
+    color: #666
+}
+.login-logo a,
+.register-logo a {
+    color: #444;
+}
+
+.login-box,
+.register-box {
+    width: 360px;
+    margin: 7% auto;
+    z-index: 1;
+    position: relative;
+}
+@media (max-width: 768px) {
+  .login-box,
+  .register-box {
+    width: 90%;
+    margin-top: 20px;
+  }
+}
+.login-box-body,
+.register-box-body {
+    background: #fff;
+    padding: 20px;
+    border-top: 0;
+    color: #666;
+    padding-bottom: 5px ; 
+    box-shadow: 1px 10px 30px -10px rgba(0,0,0,0.5);
+    position: relative;
+    overflow: hidden;
+}
+.login-box-body .form-control-feedback,
+.register-box-body .form-control-feedback {
+    color: #777;
+}
+.login-box-msg,
+.register-box-msg {
+    margin: 0;
+    text-align: center;
+    padding: 0 20px 20px 20px;
+}
+.social-auth-links {
+    margin: 10px 0;
+}
+
+.captcha-area{
+	display: none;
+	vertical-align: top;
+}
+.captcha-area input{
+	width: 100px;
+	display: inline-block;
+	vertical-align: top;
+}
+.captcha-area img{
+	cursor: pointer;
+	vertical-align: top;
+}
+
+.copyright{
+	font-size: 10px;
+	color: #010101;
+	border-top: 1px solid #d9d9d9;
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	line-height: 26px;
+	/*background: #d2d6de;210,214,222*/
+	background-color:rgba(210,214,222,0.4);
+}
+
+.color-line {
+    background: #f7f9fa;
+    height: 3px;
+    background-image: -webkit-linear-gradient(left, #34495e, #34495e 25%, #9b59b6 25%, #9b59b6 35%, #3498db 35%, #3498db 45%, #62cb31 45%, #62cb31 55%, #ffb606 55%, #ffb606 65%, #e67e22 65%, #e67e22 75%, #e74c3c 85%, #e74c3c 85%, #c0392b 85%, #c0392b 100%);
+    background-image: -moz-linear-gradient(left, #34495e, #34495e 25%, #9b59b6 25%, #9b59b6 35%, #3498db 35%, #3498db 45%, #62cb31 45%, #62cb31 55%, #ffb606 55%, #ffb606 65%, #e67e22 65%, #e67e22 75%, #e74c3c 85%, #e74c3c 85%, #c0392b 85%, #c0392b 100%);
+    background-image: -ms-linear-gradient(left, #34495e, #34495e 25%, #9b59b6 25%, #9b59b6 35%, #3498db 35%, #3498db 45%, #62cb31 45%, #62cb31 55%, #ffb606 55%, #ffb606 65%, #e67e22 65%, #e67e22 75%, #e74c3c 85%, #e74c3c 85%, #c0392b 85%, #c0392b 100%);
+    background-image: linear-gradient(to right, #34495e, #34495e 25%, #9b59b6 25%, #9b59b6 35%, #3498db 35%, #3498db 45%, #62cb31 45%, #62cb31 55%, #ffb606 55%, #ffb606 65%, #e67e22 65%, #e67e22 75%, #e74c3c 85%, #e74c3c 85%, #c0392b 85%, #c0392b 100%);
+    background-size: 100% 6px;
+    background-position: 50% 100%;
+    background-repeat: no-repeat;
+}
+
+.box_img_back_grey{
+	position: absolute;
+    width: 950px;
+	top:-80px;
+    left: -180px;
+    z-index: 0;
+}
+
+.box_img_back_grey > img {
+    width: 100%;
+ 	-webkit-filter: grayscale(100%);
+ 	filter: grayscale(100%);
+	opacity: 0.2;
+	animation-name: animar_fondo;
+  	animation-duration: 20s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+@-webkit-keyframes animar_fondo {
+	from {
+		-webkit-transform: scale(1) translate(0px);
+		-moz-transform: scale(1) translate(0px);
+		-ms-transform: scale(1) translate(0px);
+		-o-transform: scale(1) translate(0px);
+		transform: scale(1) translate(0px);
+	}
+  	to {
+  		-webkit-transform: scale(1.5) translate(50px);
+		-moz-transform: scale(1.5) translate(50px);
+		-ms-transform: scale(1.5) translate(50px);
+		-o-transform: scale(1.5) translate(50px);
+		transform: scale(1.5) translate(50px);
+	}
+}
