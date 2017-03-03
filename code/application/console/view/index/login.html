@@ -28,48 +28,52 @@
 </head>
 <body class="hold-transition login-page">
 <div id="particles-js"></div>
-<div class="color-line"></div>
-<div class="login-box">
-    <div class="login-logo">
-      <b>后台管理登录</b>
-    </div>
-    <!-- /.login-logo -->
-    <div class="login-box-body">
-        <div class="box_img_back_grey">
-            <img src="__IMAGES__/po.jpg">
+<div class="wrapper">
+    <div class="color-line"></div>
+    <div class="login-box">
+        <div class="login-logo">
+          <b>后台管理登录</b>
         </div>
-        <p class="login-box-msg">Sign in to start your session</p>
-        <form action="" method="post">
-            <div class="input-area">
-                <div class="form-group has-feedback">
-                    <input type="text" name="username" class="form-control" placeholder="用户名/邮箱">
-                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                </div>
-                <div class="form-group has-feedback">
-                    <input type="password" name="password" id="password" class="form-control" placeholder="密码">
-                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                </div>
-                <div class="form-group verify-area captcha-area">
-                    <input type="text" name="verify" id="verify" class="form-control" placeholder="验证码">  {:captcha_img()}
-                </div>
+        <!-- /.login-logo -->
+        <div class="login-box-body">
+            <div class="box_img_back_grey">
+                <img src="__IMAGES__/po.jpg">
             </div>
-            <div class="row">
-                <div class="col-xs-8">
-                    <div class="checkbox icheck">
-                        <label>
-                            <input type="checkbox" id="remember"> 记住用户名
-                        </label>
+            <div class="login-box-content">
+                <p class="login-box-msg">Sign in to start your session</p>
+                <form action="" method="post">
+                    <div class="input-area">
+                        <div class="form-group has-feedback">
+                            <input type="text" name="username" class="form-control" placeholder="用户名/邮箱">
+                            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <input type="password" name="password" id="password" class="form-control" placeholder="密码">
+                            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                        </div>
+                        <div class="form-group verify-area captcha-area">
+                            <input type="text" name="verify" id="verify" class="form-control" placeholder="验证码">  {:captcha_img()}
+                        </div>
                     </div>
-                </div>
-                <!-- /.col -->
-                <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">登录</button>
-                </div>
-                <!-- /.col -->
+                    <div class="row">
+                        <div class="col-xs-8">
+                            <div class="checkbox icheck">
+                                <label>
+                                    <input type="checkbox" id="remember"> 记住用户名
+                                </label>
+                            </div>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-xs-4">
+                            <button type="submit" class="btn btn-primary btn-block btn-flat">登录</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>
+        <!-- /.login-box-body -->
     </div>
-    <!-- /.login-box-body -->
 </div>
 <div class="text-center copyright">Copyright ©2017 <a href="http://www.benweng.com" target="_blank" title="笨翁造型">BENWENG.COM</a></div>
 <!-- /.login-box -->

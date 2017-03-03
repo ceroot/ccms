@@ -13,8 +13,6 @@
     var button      = $('button');
     var verifyArea  = $('.verify-area');
 
-
-    
     // 本地存储数据判断[html5/cookie]
     if(storage){
         if(storage.getItem('username')){
