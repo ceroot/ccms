@@ -15,7 +15,7 @@
  * @site      http://www.benweng.com
  */
 
-namespace app\common\model;
+namespace app\console\model;
 
 use think\Model;
 
@@ -23,43 +23,43 @@ class Manager extends Model
 {
 
     // 自动完成
-    protected $auto   = [];
-    protected $insert = ['create_uid', 'create_time', 'create_ip'];
-    protected $update = ['update_uid', 'update_time', 'update_ip'];
+    protected $auto = [];
+    //protected $insert = ['create_uid', 'create_time', 'create_ip'];
+    //protected $update = ['update_uid', 'update_time', 'update_ip'];
 
     // public function setPasswordAttr($value, $data)
     // {
     //     return md5(input('username') . input('password'));
     // }
 
-    public function setLoginIpAttr($value)
-    {
-        return ip2int();
-    }
+    // public function setLoginIpAttr($value)
+    // {
+    //     return ip2int();
+    // }
 
-    public function setCreateUidAttr($value, $data)
-    {
-        if (input('password')) {
-            $this->data['password'] = md5(input('username') . input('password'));
-        }
+    // public function setCreateUidAttr($value, $data)
+    // {
+    //     if (input('password')) {
+    //         $this->data['password'] = md5(input('username') . input('password'));
+    //     }
 
-        return UID;
-    }
+    //     return UID;
+    // }
 
-    public function setCreateIpAttr()
-    {
-        return ip2int();
-    }
+    // public function setCreateIpAttr()
+    // {
+    //     return ip2int();
+    // }
 
-    public function setUpdateUidAttr($value, $data)
-    {
-        return session('userid');
-    }
+    // public function setUpdateUidAttr($value, $data)
+    // {
+    //     return session('userid');
+    // }
 
-    public function setUpdateIpAttr()
-    {
-        return ip2int();
-    }
+    // public function setUpdateIpAttr()
+    // {
+    //     return ip2int();
+    // }
 
     public function getStatusTextAttr($value, $data)
     {
@@ -67,30 +67,50 @@ class Manager extends Model
         return $status[$data['status']];
     }
 
-    public function getCreateTimeShowAttr($value, $data)
-    {
-        if ($data['create_time'] == 0) {
-            $revalue = '注册时间不详';
-        } else {
-            $revalue = time_format($data['create_time']);
-        }
-        return $revalue;
-    }
+    // public function getCreateTimeShowAttr($value, $data)
+    // {
+    //     if ($data['create_time'] == 0) {
+    //         $revalue = '注册时间不详';
+    //     } else {
+    //         $revalue = time_format($data['create_time']);
+    //     }
+    //     return $revalue;
+    // }
 
-    public function getLoginTimeShowAttr($value, $data)
-    {
-        if ($data['login_time'] == 0) {
-            $revalue = '还没有进行登录';
-        } else {
-            $revalue = time_format($data['login_time']);
-        }
-        return $revalue;
-    }
+    // public function getLoginTimeShowAttr($value, $data)
+    // {
+    //     if ($data['login_time'] == 0) {
+    //         $revalue = '还没有进行登录';
+    //     } else {
+    //         $revalue = time_format($data['login_time']);
+    //     }
+    //     return $revalue;
+    // }
 
     // public function __construct()
     // {
     //     // $ddd = 0;
     // }
+
+    /**
+     * [login 验证登录]
+     * @param  [type] $uid [uid]
+     * @return [type] [description]
+     */
+    public function login($uid)
+    {
+        $map['uid'] = $uid;
+        $manager    = $this->where($map)->find();
+
+        if (!$manager) {
+            $this->error = '你不是管理员';
+            return false;
+        }
+
+        $this->autoLogin($manager);
+
+        return true;
+    }
 
     /**
      * [validate_login 验证登录]
@@ -102,18 +122,6 @@ class Manager extends Model
         $username = input('post.username');
         $password = input('post.password');
         $code     = input('post.verify');
-
-        // 用户名不为空
-        if (!$username || $username == '请输入用户名') {
-            $this->error = '请输入用户名';
-            return false;
-        }
-
-        // 密码不为空
-        if (!$password) {
-            $this->error = '请输入密码';
-            return false;
-        }
 
         $error_num = session('error_num');
         if (!isset($error_num)) {
@@ -127,11 +135,6 @@ class Manager extends Model
         }
 
         // 验证码是否相等
-        // if ($error_num > 3 && !verifyCheck($code)) {
-        //     $this->error = '验证码输入错误';
-        //     return false;
-        // }
-        // $error_num = 4;
         if ($error_num > 3 && !captcha_check($code)) {
             $this->error = '验证码输入错误';
             return false;
@@ -178,18 +181,29 @@ class Manager extends Model
     }
 
     /**
-     * [update_login 更新登录信息]
-     * @param  [type] $user [description]
-     * @return [type]       [description]
+     * 自动登录用户
+     * @param  integer $user 用户信息数组
      */
-    public function updateLogin($user)
+    private function autoLogin($user)
     {
-        // 更新登录信息
-        $data['times']      = $user['times'] + 1;
-        $data['login_time'] = time();
-        $data['login_ip']   = ip2int();
-        $manager            = model('manager');
-        $manager->save($data, ['id' => $user['id']]);
+        /* 更新登录信息 */
+        $data = array(
+            'id'              => $user['id'],
+            'last_login_time' => time(),
+        );
+
+        $this->update($data);
+
+        /* 记录登录SESSION和COOKIES */
+        $auth = array(
+            'id'              => $user['id'],
+            'username'        => $user['nickname'],
+            'last_login_time' => $user['last_login_time'],
+        );
+
+        session('user_auth', $auth);
+        session('user_auth_sign', data_auth_sign($auth));
+
     }
 
 }

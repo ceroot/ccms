@@ -15,7 +15,7 @@
  * @site      http://www.benweng.com
  */
 
-namespace app\common\model;
+namespace app\user\model;
 
 use think\Model;
 
@@ -91,105 +91,58 @@ class UcenterMember extends Model
     // {
     //     // $ddd = 0;
     // }
-
-    /**
-     * [validate_login 验证登录]
-     * @return [type] [description]
-     */
-    public function validateLogin()
+    public function dsf()
     {
-        /******接收数据******/
-        $username = input('post.username');
-        $password = input('post.password');
-        $code     = input('post.verify');
-
-        // 用户名不为空
-        if (!$username || $username == '请输入用户名') {
-            $this->error = '请输入用户名';
-            return false;
-        }
-
-        // 密码不为空
-        if (!$password) {
-            $this->error = '请输入密码';
-            return false;
-        }
-
-        $error_num = session('error_num');
-        if (!isset($error_num)) {
-            session('error_num', 0);
-        }
-
-        // 验证码验不为空
-        if ($error_num > 3 && !$code) {
-            $this->error = '请输入验证码';
-            return false;
-        }
-
-        // 验证码是否相等
-        // if ($error_num > 3 && !verifyCheck($code)) {
-        //     $this->error = '验证码输入错误';
-        //     return false;
-        // }
-        // $error_num = 4;
-        if ($error_num > 3 && !captcha_check($code)) {
-            $this->error = '验证码输入错误';
-            return false;
-        }
-
-        $user = db('manager')->where('username', $username)->find();
-        // return $user;
-        if (!$user) {
-            $this->error = '用户名不存在';
-            session('error_num', $error_num + 1);
-            return false;
-        }
-
-        if ($user['password'] != md5($username . $password)) {
-            $this->error = '密码错误';
-            session('error_num', $error_num + 1);
-            return false;
-        }
-
-        if (!$user['status']) {
-            $this->error = '用户锁定中，请联系管理员';
-            return false;
-        }
-
-        $auto = input('post.auto');
-        if ($auto) {
-            setcookie(session_name(), session_id(), time() + 60 * 60 * 24 * 14, '/');
-        } else {
-            setcookie(session_name(), session_id(), 0, '/');
-        }
-
-        return $user;
+        return encrypt_password(1, 2);
     }
-
     /**
-     * [set_session set_session]
-     * @param [type] $user [description]
+     * [login 用户登录认证]
+     * @param  string  $username 用户名
+     * @param  string  $password 用户密码
+     * @param  integer $type     用户名类型 （1-用户名，2-邮箱，3-手机，4-UID）
+     * @return integer           登录成功-用户ID，登录失败-错误编号
      */
-    public function setSession($user)
+    public function login($username, $password, $type = 1)
     {
-        session('userid', $user['id']);
-        session('username', $user['username']);
-        session('nickname', $user['nickname']);
+        $map['username|email|mobile'] = $username;
+
+        // 数据查询
+        $user = $this::get(function ($q) use ($map) {
+            $q->where($map)->field('id,password,status,salt');
+        });
+
+        if ($user) {
+            // 判断用户状态
+            if ($user['status']) {
+                if ($user['password'] != encrypt_password($password, $user['salt'])) {
+                    $this->error = '密码错误';
+                    return -1;
+                } else {
+                    $this->updateLogin($user->id); // 更新登录记录
+                    return $user->id;
+                }
+            } else {
+                $this->error = '用户锁定中，请联系管理员';
+                return -2;
+            }
+        } else {
+            $this->error = '用户名不存在';
+            return -3;
+        }
     }
 
     /**
      * [update_login 更新登录信息]
-     * @param  [type] $user [description]
+     * @param  [type] $uid [description]
      * @return [type]       [description]
      */
-    public function updateLogin($user)
+    public function updateLogin($uid)
     {
-        // 更新登录信息
-        $data['times']      = $user['times'] + 1;
+        $data['id']         = $uid;
+        $data['times']      = array('exp', '`times`+1');
         $data['login_time'] = time();
         $data['login_ip']   = ip2int();
-        $manager            = model('manager');
-        $manager->save($data, ['id' => $user['id']]);
+        $this->update($data);
     }
 
 }
