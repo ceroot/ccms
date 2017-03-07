@@ -197,7 +197,7 @@ class Manager extends Model
         /* 记录登录SESSION和COOKIES */
         $auth = array(
             'id'              => $user['id'],
-            'username'        => $user['nickname'],
+            'username'        => $user['username'],
             'last_login_time' => $user['last_login_time'],
         );
 
