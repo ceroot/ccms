@@ -110,39 +110,41 @@
             dataType: 'json',
             data: _form.serialize(),
         })
-        .done(function(data) {
-            console.log(data);
-            if(data.status==1){
-                layer.msg(data.info);
+        .done(function(result) {
+            console.log(result);
+            // console.log(result.data.error_num);
+            //return false;
+            if(result.code==1){
+                layer.msg(result.msg);
                 layer.close(loading);
                 if(getQueryString('backurl')){
                     var jumpurl  = getQueryString('backurl');
                 }else{
-                    var jumpurl  = data.url;
+                    var jumpurl  = result.url;
                 }
                 console.log(jumpurl);
                 window.location.href = jumpurl;
             }else{
-                layer.msg(data.info,function(){});
+                layer.msg(result.msg,function(){});
                 layer.close(loading);
                 button.prop('disabled',false).text('登录');
                 // console.log('登录');
             }
 
             if(storage){
-                storage.setItem('error_num',data.error_num);
+                storage.setItem('error_num',result.data.error_num);
             }else{
-                $.cookie(COOKIE_ERROR,data.error_num, { path: '/', expires: 15 });
+                $.cookie(COOKIE_ERROR,result.data.error_num, { path: '/', expires: 15 });
             }
 
-            if(data.show_code==1){
+            if(result.data.show_code==1){
                 verifyArea.show();
                 changeCode();
             }else{
                 verifyArea.hide();
             }
         })
-        .fail(function() {
+        .fail(function(result) {
             layer.close(loading);
             console.log('fail');
             button.prop('disabled',false).text('登录');
